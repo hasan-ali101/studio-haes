@@ -1,15 +1,14 @@
-import localFont from "next/font/local";
-import { Github, Linkedin, Plus } from "lucide-react";
-import Link from "next/link";
+import { useState } from "react";
+import Header from "@/components/header";
 import Image from "next/image";
 
-const akira = localFont({
-  src: "./fonts/Akira.otf",
-});
+import { projects } from "@/data";
 
 export default function Home() {
+  const [activeProject, setActiveProject] = useState(projects[0]);
+
   return (
-    <div className="relative h-full w-full overflow-clip">
+    <div className="relative flex min-h-screen w-full flex-col">
       <Image
         src="/starry-night.jpg"
         className="absolute z-0 h-full w-full min-w-[1000px] opacity-[0.08]"
@@ -17,53 +16,53 @@ export default function Home() {
         height={1000}
         alt="-"
       />
-      <div
-        className={`sticky z-10 flex h-screen w-screen flex-col px-6 text-xl text-blue sm:px-12`}
-      >
+
+      <div className="z-10 flex h-screen flex-col px-6 sm:px-12">
+        <Header />
         <div
-          id="header"
-          className="flex items-center justify-between px-2 pb-2 pt-4 md:px-6"
+          id="mediumPlus"
+          className="my-8 hidden h-full w-full flex-1 grid-cols-12 overflow-auto md:grid"
         >
-          <div className="flex items-center gap-2">
-            <a
-              target="_blank"
-              href="http://www.linkedin.com/in/hasan-ali-software-developer"
-            >
-              <Linkedin className="h-8 w-8 rounded-sm border-blue p-1 hover:bg-white/10 md:h-8 md:w-8" />
-            </a>
-            <a
-              target="_blank"
-              href="https://github.com/hasan-ali101?tab=overview&from=2024-12-01&to=2024-12-02"
-            >
-              <Github className="h-8 w-8 border-blue p-1 hover:bg-white/10 md:h-8 md:w-8" />
-            </a>
+          <div className="col-span-3 flex h-full flex-col gap-y-4 overflow-auto border-r border-beige p-4">
+            <p className="font-semibold text-beige">ABOUT</p>
+            <p className="text-sm font-semibold text-beige">
+              ENGINEERING & DESIGN
+            </p>
+            <p className="text-sm text-white">
+              Front-end engineer skilled in designing and developing intelligent
+              web experiences. Front-end engineer experienced in designing and
+              developing intelligent web experiences. Front-end engineer
+              experienced In designing and developing intelligent web
+              experiences. Front-end engineer.
+            </p>
+            <p className="text-sm font-semibold text-beige">BACKGROUND</p>
+            <p className="text-sm text-white">
+              Front-end engineer skilled in designing and developing intelligent
+              web experiences. Front-end engineer experienced in designing and
+              developing intelligent web experiences.
+            </p>
           </div>
-          <div className="flex items-center gap-2 text-xs font-semibold sm:text-sm md:gap-3 md:text-base">
-            <button className="rounded-xl border border-blue p-1 px-3 hover:bg-white/10">
-              Contact
-            </button>
-            <button className="rounded-xl border border-blue p-1 px-3 hover:bg-white/10">
-              CV
-            </button>
+          <div className="col-span-3 flex h-full flex-col overflow-auto border-r border-beige p-4">
+            <p className="mb-6 font-semibold text-beige">PROJECTS</p>
+            {projects.map((project) => {
+              return (
+                <div className="flex items-center border-t border-t-beige px-4 py-6">
+                  <p
+                    className="cursor-pointer font-semibold text-white transition-all hover:text-blue"
+                    onClick={() => {}}
+                  >
+                    {project.name}
+                  </p>
+                </div>
+              );
+            })}
           </div>
+          <div className="col-span-6"></div>
         </div>
-
         <div
-          id="haes"
-          className={`${akira.className} items flex w-full items-center justify-between border-y border-y-beige py-1 text-center text-3xl sm:py-4 sm:text-4xl sm:tracking-wider`}
-        >
-          <div className="mx-3 flex flex-1 items-center gap-1">
-            <div className="ml-2 flex-1 border-t-[0.5px] border-beige md:ml-12" />
-          </div>{" "}
-          <h1 className="md:mx-2">STUDIO HAES</h1>
-          <div className="mx-3 flex flex-1 items-center gap-1">
-            <div className="mr-2 flex-1 border-t-[0.5px] border-beige md:mr-12" />
-          </div>
-        </div>
-
-        <div id="body" className="w-full flex-1"></div>
-
-        <div id="footer" className="h-20 w-full border-t border-beige"></div>
+          id="footer"
+          className="mt-auto h-24 w-full border-t border-beige"
+        ></div>
       </div>
     </div>
   );
