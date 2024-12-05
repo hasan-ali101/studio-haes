@@ -26,11 +26,11 @@ const Header = () => {
             <Github className="h-8 w-8 rounded-lg border-blue p-1 transition-colors hover:bg-blue/20 md:h-9 md:w-9" />
           </a>
         </div>
-        <div className="flex items-center gap-2 text-xs font-semibold sm:text-sm md:gap-3 md:text-base">
-          <button className="rounded-sm border border-blue p-1 px-3 transition-colors hover:bg-blue/20">
+        <div className="flex items-center gap-2 text-xs font-semibold md:gap-3 md:text-xl">
+          <button className="rounded-sm border-blue p-1 px-3 transition-colors hover:bg-blue/20">
             Contact
           </button>
-          <button className="rounded-sm border border-blue p-1 px-3 transition-colors hover:bg-blue/20">
+          <button className="rounded-sm border-blue p-1 px-3 transition-colors hover:bg-blue/20">
             CV
           </button>
         </div>

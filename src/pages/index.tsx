@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div
-      className={`${montserrat.className} relative flex min-h-screen w-full flex-col bg-background text-white`}
+      className={`${montserrat.className} relative flex min-h-screen w-full flex-col overflow-clip bg-background text-white`}
     >
       <Image
         src="/starry-night.jpg"
@@ -83,7 +83,7 @@ export default function Home() {
               );
             })}
           </div>
-          <div className="col-span-6 h-full overflow-scroll p-4">
+          <div className="col-span-6 h-full overflow-auto p-4">
             <div className="flex justify-between">
               <p className="mb-3 font-bold text-beige/60">PROJECT INFO</p>
               <div className="flex gap-6">
@@ -120,13 +120,15 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col items-start gap-6 py-2 pl-4 lg:pl-10">
-              <Image
-                src={activeProject.image}
-                className="h-80 w-full"
-                width="676"
-                height="349"
-                alt=""
-              />
+              <div className="flex w-full justify-center">
+                <Image
+                  src={activeProject.image}
+                  className="h-80 w-full max-w-[600px] transition-all hover:scale-[102%]"
+                  width="676"
+                  height="349"
+                  alt=""
+                />
+              </div>
               <p className="w-full tracking-wide text-white">
                 {activeProject.summary}
               </p>
