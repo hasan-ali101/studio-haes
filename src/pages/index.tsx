@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/header";
 import Image from "next/image";
 import { Link } from "lucide-react";
@@ -12,6 +12,11 @@ const montserrat = Montserrat({ subsets: ["latin"], weight: "400" });
 export default function Home() {
   const [activeProject, setActiveProject] = useState(projects[0]);
   const [description, setDescription] = useState("video");
+  const [delayComplete, setDelayComplete] = useState(false);
+
+  useEffect(() => {
+    setDelayComplete(true);
+  }, []);
 
   return (
     <div
@@ -29,12 +34,12 @@ export default function Home() {
         <Header />
         <div
           id="mediumPlus"
-          className="my-4 hidden h-full w-full flex-1 grid-cols-12 overflow-auto md:grid"
+          className="my-4 hidden h-fit w-full grid-cols-12 overflow-auto md:grid"
         >
-          <div className="col-span-3 flex h-full flex-col gap-y-4 overflow-auto border-r border-beige p-4">
+          <div className="col-span-3 flex h-full flex-col gap-y-4 overflow-auto border-r border-beige px-4 pb-8 pt-5">
             <p className="font-bold text-beige/60">ABOUT</p>
             <p className="font-semibold text-beige/60">ENGINEERING & DESIGN</p>
-            <p className="mb-2 text-sm leading-6 tracking-wide text-white">
+            <p className="mb-2 text-sm leading-6 tracking-wide text-white transition-all">
               Front-end engineer skilled in designing and developing intelligent
               web experiences. Front-end engineer experienced in designing and
               developing intelligent web experiences. Front-end engineer
@@ -45,7 +50,7 @@ export default function Home() {
             <p className="text-sm leading-6 tracking-wide text-white">
               Front-end engineer skilled in designing and developing intelligent
               web experiences. Front-end engineer skilled in designing and
-              developing intelligent
+              developing intelligent web experiences. Front-end engineer
             </p>
           </div>
           <div className="col-span-3 flex h-full flex-col overflow-auto border-r border-beige p-4">
@@ -119,11 +124,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col items-start gap-6 py-2 pl-4 lg:pl-10">
+            <div className="flex flex-col items-start gap-6 py-6 pl-4 lg:pl-10">
               <div className="flex w-full justify-center">
                 <Image
                   src={activeProject.image}
-                  className="h-80 w-full max-w-[600px] transition-all hover:scale-[102%]"
+                  className={cn(
+                    delayComplete ? "scale-100" : "scale-[99%]",
+                    "h-80 w-full max-w-[600px] transition-all duration-500 hover:scale-[102%]",
+                  )}
                   width="676"
                   height="349"
                   alt=""
@@ -137,7 +145,10 @@ export default function Home() {
         </div>
         <div
           id="footer"
-          className="mt-auto h-28 w-full border-t border-beige"
+          className={cn(
+            delayComplete ? "h-16" : "h-14",
+            "mt-auto w-full border-t border-beige transition-all duration-700",
+          )}
         ></div>
       </div>
     </div>

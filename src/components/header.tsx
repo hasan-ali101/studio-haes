@@ -1,11 +1,18 @@
+import { cn } from "@/utils";
 import { Github, Linkedin } from "lucide-react";
 import localFont from "next/font/local";
+import { use, useEffect, useState } from "react";
 
 const akira = localFont({
   src: "../pages/fonts/Akira.otf",
 });
 
 const Header = () => {
+  const [delayComplete, setDelayComplete] = useState(false);
+
+  useEffect(() => {
+    setDelayComplete(true);
+  }, []);
   return (
     <div>
       <div
@@ -37,14 +44,19 @@ const Header = () => {
       </div>
       <div
         id="haes"
-        className={`${akira.className} items flex w-full items-center justify-between border-y border-y-beige py-3 text-center text-4xl sm:py-4 sm:text-6xl`}
+        className={cn(
+          delayComplete ? "h-20 py-2 md:py-4" : "h-16 py-0",
+          `${akira.className} items flex w-full items-center justify-between overflow-y-clip border-y border-y-beige text-center transition-all duration-700`,
+        )}
       >
         <div className="mx-3 flex flex-1 items-center gap-1">
-          <div className="ml-2 flex-1 border-t-[0.5px] border-beige md:ml-12" />
+          <div className="ml-2 flex-1 border-t-[0.5px] border-beige md:ml-8 lg:ml-12" />
         </div>
-        <h1 className="text-blue md:mx-2">STUDIO HAES</h1>
+        <h1 className="text-4xl text-blue md:mx-2 md:text-5xl lg:text-6xl">
+          STUDIO HAES
+        </h1>
         <div className="mx-3 flex flex-1 items-center gap-1">
-          <div className="mr-2 flex-1 border-t-[0.5px] border-beige md:mr-12" />
+          <div className="mr-2 flex-1 border-t-[0.5px] border-beige md:ml-8 lg:mr-12" />
         </div>
       </div>
     </div>

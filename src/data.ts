@@ -37,4 +37,10 @@ export const projects = [
     image: "/robots.png",
     description: "Description 5",
   },
+  {
+    name: "HACKER-IMG",
+    summary: "Healthtech platform",
+    image: "/robots.png",
+    description: "Description 5",
+  },
 ];
