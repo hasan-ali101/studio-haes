@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { Github, Linkedin } from "lucide-react";
 import localFont from "next/font/local";
-import { use, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 const akira = localFont({
   src: "../pages/fonts/Akira.otf",
@@ -17,7 +17,7 @@ const Header = () => {
     <div>
       <div
         id="header"
-        className="flex items-center justify-between px-2 py-2 text-blue md:px-6"
+        className="relative flex items-center justify-between px-2 py-2 text-blue md:px-6"
       >
         <div className="flex items-center gap-2">
           <a
@@ -33,20 +33,13 @@ const Header = () => {
             <Github className="h-8 w-8 rounded-lg border-blue p-1 transition-colors hover:bg-blue/20 md:h-9 md:w-9" />
           </a>
         </div>
-        <div className="flex items-center gap-2 text-xs font-semibold md:gap-3 md:text-xl">
-          <button className="rounded-sm border-blue p-1 px-3 transition-colors hover:bg-blue/20">
-            Contact
-          </button>
-          <button className="rounded-sm border-blue p-1 px-3 transition-colors hover:bg-blue/20">
-            CV
-          </button>
-        </div>
       </div>
       <div
         id="haes"
         className={cn(
           delayComplete ? "h-20 py-2 md:py-4" : "h-16 py-0",
-          `${akira.className} items flex w-full items-center justify-between overflow-y-clip border-y border-y-beige text-center transition-all duration-700`,
+          akira.className,
+          `items flex w-full items-center justify-between overflow-y-clip border-y border-y-beige text-center transition-all duration-700`,
         )}
       >
         <div className="mx-3 flex flex-1 items-center gap-1">

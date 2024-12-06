@@ -1,18 +1,25 @@
 import { useEffect, useState } from "react";
-import Header from "@/components/header";
+import localFont from "next/font/local";
 import Image from "next/image";
-import { Link } from "lucide-react";
-import { Archivo as Montserrat } from "next/font/google";
+import { Link, SquareX } from "lucide-react";
+import { Archivo } from "next/font/google";
+import { motion } from "motion/react";
 
+import Header from "@/components/header";
 import { projects } from "@/data";
 import { cn } from "@/utils";
 
-const montserrat = Montserrat({ subsets: ["latin"], weight: "400" });
+const akira = localFont({
+  src: "../pages/fonts/Akira.otf",
+});
+
+const archivo = Archivo({ subsets: ["latin"], weight: "400" });
 
 export default function Home() {
   const [activeProject, setActiveProject] = useState(projects[0]);
   const [description, setDescription] = useState("video");
   const [delayComplete, setDelayComplete] = useState(false);
+  const [sideBarActive, setSidebarActive] = useState(false);
 
   useEffect(() => {
     setDelayComplete(true);
@@ -20,7 +27,10 @@ export default function Home() {
 
   return (
     <div
-      className={`${montserrat.className} relative flex min-h-screen w-full flex-col overflow-clip bg-background text-white`}
+      className={cn(
+        archivo.className,
+        "relative flex min-h-screen w-full flex-col overflow-clip bg-background text-white",
+      )}
     >
       <Image
         src="/starry-night.jpg"
@@ -29,6 +39,50 @@ export default function Home() {
         height={1000}
         alt="-"
       />
+
+      <div className="absolute right-8 top-1 z-50 flex items-center text-lg font-semibold text-blue sm:right-10 md:right-14 md:top-2 md:gap-3 md:text-xl">
+        <button
+          className="rounded-sm border-blue p-2 transition-colors hover:bg-blue/20 md:px-3"
+          onClick={() => {
+            setSidebarActive(true);
+          }}
+        >
+          Contact
+        </button>
+        <button
+          className="rounded-sm border-blue p-2 transition-colors hover:bg-blue/20 md:px-3"
+          onClick={() => {
+            setSidebarActive(true);
+          }}
+        >
+          CV
+        </button>
+      </div>
+      {sideBarActive && (
+        <>
+          <div
+            id="overlay"
+            className="absolute bottom-0 left-0 right-0 top-0 z-20 cursor-pointer bg-black/60"
+            onClick={() => {
+              setSidebarActive(false);
+            }}
+          />
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: "10%" }}
+            exit={{ x: "100%" }}
+            className="absolute right-0 z-40 h-full w-2/3 bg-background/95 px-8 pt-3 md:w-1/2 md:pt-4"
+          >
+            <SquareX
+              size={30}
+              className="cursor-pointer text-blue"
+              onClick={() => {
+                setSidebarActive(false);
+              }}
+            />
+          </motion.div>
+        </>
+      )}
 
       <div className="z-10 flex h-screen flex-col px-6 sm:px-12">
         <Header />
@@ -146,10 +200,16 @@ export default function Home() {
         <div
           id="footer"
           className={cn(
-            delayComplete ? "h-16" : "h-14",
-            "mt-auto w-full border-t border-beige transition-all duration-700",
+            akira.className,
+            delayComplete ? "h-20" : "h-16",
+            "mt-auto line-clamp-1 flex w-full items-center border-t border-beige text-lg text-blue/60 transition-all duration-700 md:text-2xl",
           )}
-        ></div>
+        >
+          <p className="line-clamp-1 overflow-x-scroll">
+            ANGELs CAN FLY BECAUSE THEY TAKE THESELVES LIGHTLY - JUST AS THE
+            OCEAN WAVES, THE WORLD PEOPLES - ANGEL CAN FLY BECAUSE THEY TAKE
+          </p>
+        </div>
       </div>
     </div>
   );
