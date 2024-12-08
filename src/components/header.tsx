@@ -14,7 +14,7 @@ const Header = () => {
     setDelayComplete(true);
   }, []);
   return (
-    <div>
+    <>
       <div
         id="header"
         className="relative flex items-center justify-between px-2 py-2 text-blue md:px-6"
@@ -52,7 +52,7 @@ const Header = () => {
           <div className="mr-2 flex-1 border-t-[0.5px] border-beige md:ml-8 lg:mr-12" />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

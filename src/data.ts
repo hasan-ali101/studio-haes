@@ -1,3 +1,10 @@
+export type ProjectType = {
+  name: string;
+  summary: string;
+  image: string;
+  description: string;
+};
+
 export const projects = [
   {
     name: "ROROBOTS",
