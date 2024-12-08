@@ -23,7 +23,7 @@ const Curve = () => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className="fill-background/95"
+        className="fill-background/85"
       />
     </svg>
   );

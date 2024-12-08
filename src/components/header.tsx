@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { Github, Linkedin } from "lucide-react";
 import localFont from "next/font/local";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const akira = localFont({
   src: "../pages/fonts/Akira.otf",

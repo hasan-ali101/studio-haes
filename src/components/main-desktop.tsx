@@ -41,9 +41,10 @@ const MainDesktop = ({
       </div>
       <div className="col-span-3 flex h-full flex-col overflow-auto border-r border-beige p-4">
         <p className="mb-5 px-2 font-bold text-beige/60">PROJECTS</p>
-        {projects.map((project) => {
+        {projects.map((project, i) => {
           return (
             <div
+              key={i}
               className={cn(
                 project.name === activeProject.name
                   ? "bg-blue/20 font-black"
