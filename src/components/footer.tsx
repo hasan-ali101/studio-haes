@@ -16,7 +16,7 @@ const Footer = ({ delayComplete }: { delayComplete: boolean }) => {
         "mt-auto line-clamp-1 flex w-full items-center border-t border-beige text-lg text-blue/60 transition-all duration-700 md:text-2xl",
       )}
     >
-      <p className="line-clamp-1 overflow-x-scroll">
+      <p className="line-clamp-1 overflow-x-auto">
         ANGELs CAN FLY BECAUSE THEY TAKE THESELVES LIGHTLY - JUST AS THE OCEAN
         WAVES, THE WORLD PEOPLES - ANGEL CAN FLY BECAUSE THEY TAKE
       </p>
