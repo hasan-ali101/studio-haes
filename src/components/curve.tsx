@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { checkIsOnDemandRevalidate } from "next/dist/server/api-utils";
 
 const Curve = () => {
   const initialPath = `M 128 0 L 128 ${window.innerHeight} Q-128 ${window.innerHeight / 2} 128 0`;
