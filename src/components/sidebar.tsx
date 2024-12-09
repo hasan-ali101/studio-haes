@@ -23,7 +23,7 @@ const SideBar = ({
         initial="initial"
         animate="animate"
         exit="exit"
-        className="absolute right-0 z-40 h-full w-2/3 bg-background/80 md:w-1/2"
+        className="absolute right-0 z-40 h-full w-full bg-background/80 md:w-1/2"
       >
         <div className="relative flex h-full w-full px-8 pt-3">
           <Curve />

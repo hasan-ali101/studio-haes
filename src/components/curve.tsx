@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { checkIsOnDemandRevalidate } from "next/dist/server/api-utils";
 
 const Curve = () => {
   const initialPath = `M 128 0 L 128 ${window.innerHeight} Q-128 ${window.innerHeight / 2} 128 0`;
@@ -17,13 +18,18 @@ const Curve = () => {
   };
 
   return (
-    <svg className="pointer-events-none absolute -left-32 top-0 h-full w-32">
+    <svg
+      height="100%"
+      width="100%"
+      className="pointer-events-none absolute -left-32 top-0 h-full w-32"
+    >
       <motion.path
         variants={curve}
         initial="initial"
         animate="animate"
         exit="exit"
-        className="fill-background/85"
+        className="fill-background/80 stroke-background/80"
+        d={initialPath}
       />
     </svg>
   );
