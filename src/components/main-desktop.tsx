@@ -49,7 +49,7 @@ const MainDesktop = ({
                 project.name === activeProject.name
                   ? "bg-blue/20 font-black"
                   : "font-semibold",
-                "flex cursor-pointer items-center border-t border-t-beige/40 px-4 py-4 transition-all hover:text-blue",
+                "flex cursor-pointer items-center border-t border-t-beige/40 px-4 py-4 transition-all duration-500 hover:text-blue",
               )}
               onClick={() => {
                 setActiveProject(project);
