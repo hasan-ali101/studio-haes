@@ -10,6 +10,7 @@ import Footer from "@/components/footer";
 import SideBar from "@/components/sidebar";
 import Overlay from "@/components/overlay";
 import MainDesktop from "@/components/main-desktop";
+import MainMobile from "@/components/main-mobile";
 
 const archivo = Archivo({ subsets: ["latin"], weight: "400" });
 
@@ -27,9 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     setDelayComplete(true);
-
     window.addEventListener("keydown", respondKeyDown);
-
     return () => {
       window.removeEventListener("keydown", respondKeyDown);
     };
@@ -92,6 +91,7 @@ export default function Home() {
           activeProject={activeProject}
           setActiveProject={setActiveProject}
         />
+        <MainMobile activeProject={activeProject} />
         <Footer delayComplete={delayComplete} />
       </div>
     </div>

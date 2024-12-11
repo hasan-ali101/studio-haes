@@ -1,8 +1,6 @@
 import { projects, ProjectType } from "@/data";
 import { cn } from "@/utils";
-import { Link } from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
+import ProjectDetails from "@/components/project-details";
 
 type Props = {
   activeProject: ProjectType;
@@ -15,12 +13,10 @@ const MainDesktop = ({
   setActiveProject,
   delayComplete,
 }: Props) => {
-  const [descriptionFormat, setDescriptionFormat] = useState("video");
-
   return (
     <div
       id="mediumPlus"
-      className="my-4 hidden h-fit w-full grid-cols-12 overflow-auto md:grid"
+      className="my-4 hidden h-fit w-full flex-1 grid-cols-12 overflow-auto md:grid"
     >
       <div className="col-span-3 flex h-full flex-col gap-y-4 overflow-auto border-r border-beige px-4 pb-8 pt-5">
         <p className="font-bold text-beige/60">ABOUT</p>
@@ -76,58 +72,7 @@ const MainDesktop = ({
         })}
       </div>
       <div className="col-span-6 h-full overflow-auto p-4">
-        <div className="flex justify-between">
-          <p className="mb-3 font-bold text-beige/60">PROJECT INFO</p>
-          <div className="flex gap-6">
-            <div className="flex gap-2">
-              <p
-                onClick={() => {
-                  setDescriptionFormat("video");
-                }}
-                className={cn(
-                  descriptionFormat === "video" && "text-blue underline",
-                  "cursor-pointer",
-                )}
-              >
-                Video
-              </p>
-              <p>|</p>
-              <p
-                onClick={() => {
-                  setDescriptionFormat("text");
-                }}
-                className={cn(
-                  descriptionFormat === "text" && "text-blue underline",
-                  "cursor-pointer",
-                )}
-              >
-                Text
-              </p>
-            </div>
-            <div className="flex gap-x-1 font-semibold text-blue">
-              <p>Link</p>
-              <Link className="mt-1 h-4 w-4" />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col items-start gap-6 py-6 pl-4 lg:pl-10">
-          <div className="flex w-full justify-center">
-            <Image
-              src={activeProject.image}
-              className={cn(
-                delayComplete ? "scale-100" : "scale-[99%]",
-                "h-80 w-full max-w-[600px] transition-all duration-500 hover:scale-[102%]",
-              )}
-              width="676"
-              height="349"
-              alt=""
-            />
-          </div>
-          <p className="w-full tracking-wide text-white">
-            {activeProject.summary}
-          </p>
-        </div>
+        <ProjectDetails activeProject={activeProject} />
       </div>
     </div>
   );

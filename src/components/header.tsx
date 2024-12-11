@@ -37,7 +37,7 @@ const Header = () => {
       <div
         id="haes"
         className={cn(
-          delayComplete ? "h-20 py-2 md:py-4" : "h-16 py-0",
+          delayComplete ? "py-2 md:py-4" : "py-1 md:py-2",
           akira.className,
           `items flex w-full items-center justify-between overflow-y-clip border-y border-y-beige text-center transition-all duration-700`,
         )}
@@ -45,7 +45,7 @@ const Header = () => {
         <div className="mx-3 flex flex-1 items-center gap-1">
           <div className="ml-2 flex-1 border-t-[0.5px] border-beige md:ml-8 lg:ml-12" />
         </div>
-        <h1 className="text-4xl text-blue md:mx-2 md:text-5xl lg:text-6xl">
+        <h1 className="text-center text-4xl text-blue md:mx-2 md:text-5xl lg:text-6xl">
           STUDIO HAES
         </h1>
         <div className="mx-3 flex flex-1 items-center gap-1">
