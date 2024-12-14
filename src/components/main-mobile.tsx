@@ -23,10 +23,15 @@ const MainMobile = ({ activeProject }: Props) => {
       </p>
       <div className="flex flex-col gap-1">
         <p className="font-semibold text-beige/60">PROJECTS</p>
-        <div className="border-y border-beige">
+        <div className="border-t border-beige">
           {projects.map((project, i) => {
             return (
-              <Accordion type="single" collapsible className="w-full px-1">
+              <Accordion
+                key={i}
+                type="single"
+                collapsible
+                className="w-full px-1"
+              >
                 <AccordionItem value="item-1">
                   <AccordionTrigger>{project.name}</AccordionTrigger>
                   <AccordionContent>

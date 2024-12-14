@@ -5,14 +5,9 @@ import ProjectDetails from "@/components/project-details";
 type Props = {
   activeProject: ProjectType;
   setActiveProject: (project: ProjectType) => void;
-  delayComplete: boolean;
 };
 
-const MainDesktop = ({
-  activeProject,
-  setActiveProject,
-  delayComplete,
-}: Props) => {
+const MainDesktop = ({ activeProject, setActiveProject }: Props) => {
   return (
     <div
       id="mediumPlus"
