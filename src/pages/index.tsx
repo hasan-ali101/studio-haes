@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Archivo } from "next/font/google";
 import { AnimatePresence } from "motion/react";
@@ -39,7 +39,7 @@ export default function Home() {
     if (!sideBarActive && sideBarSection !== "") {
       setSidebarSection("");
     }
-  }, [sideBarActive]);
+  }, [sideBarActive, sideBarSection]);
 
   return (
     <div
