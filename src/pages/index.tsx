@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Image from "next/image";
 import { Archivo } from "next/font/google";
 import { AnimatePresence } from "motion/react";
@@ -18,6 +18,7 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState(projects[0]);
   const [delayComplete, setDelayComplete] = useState(false);
   const [sideBarActive, setSidebarActive] = useState(false);
+  const [sideBarSection, setSidebarSection] = useState("");
 
   const respondKeyDown = (e: KeyboardEvent) => {
     console.log(e.key);
@@ -33,6 +34,12 @@ export default function Home() {
       window.removeEventListener("keydown", respondKeyDown);
     };
   }, []);
+
+  useEffect(() => {
+    if (!sideBarActive && sideBarSection !== "") {
+      setSidebarSection("");
+    }
+  }, [sideBarActive]);
 
   return (
     <div
@@ -51,24 +58,32 @@ export default function Home() {
       <div
         className={cn(
           sideBarActive && "scale-125",
-          "absolute right-8 top-1 z-50 flex items-center text-lg font-semibold text-blue transition-transform delay-500 duration-500 sm:right-10 md:right-14 md:top-2 md:gap-3 md:text-xl",
+          "absolute right-8 top-1 z-50 flex items-center text-lg font-semibold text-blue transition-transform delay-300 duration-500 sm:right-10 md:right-14 md:top-2 md:gap-3 md:text-xl",
         )}
       >
         <button
-          className="rounded-sm border-blue p-2 transition-colors hover:bg-blue/20 md:px-3"
+          className={cn(
+            sideBarSection === "cv" && "bg-blue/20",
+            "rounded-sm border-blue p-2 outline-none ring-transparent transition-colors hover:bg-blue/20 md:px-3",
+          )}
           onClick={() => {
             setSidebarActive(true);
-          }}
-        >
-          Contact
-        </button>
-        <button
-          className="rounded-sm border-blue p-2 transition-colors hover:bg-blue/20 md:px-3"
-          onClick={() => {
-            setSidebarActive(true);
+            setSidebarSection("cv");
           }}
         >
           CV
+        </button>
+        <button
+          className={cn(
+            sideBarSection === "contact" && "bg-blue/20",
+            "rounded-sm border-blue p-2 outline-none ring-transparent transition-colors hover:bg-blue/20 md:px-3",
+          )}
+          onClick={() => {
+            setSidebarActive(true);
+            setSidebarSection("contact");
+          }}
+        >
+          Contact
         </button>
       </div>
       <AnimatePresence mode="wait">
@@ -87,7 +102,6 @@ export default function Home() {
       <div className="z-10 flex h-screen flex-col px-6 sm:px-12">
         <Header />
         <MainDesktop
-          delayComplete={delayComplete}
           activeProject={activeProject}
           setActiveProject={setActiveProject}
         />

@@ -40,7 +40,7 @@ const MainDesktop = ({ activeProject, setActiveProject }: Props) => {
                 project.name === activeProject.name
                   ? "bg-blue/20 font-black"
                   : "font-semibold",
-                "flex cursor-pointer items-center border-t border-t-beige/40 px-4 py-4 transition-all duration-500 hover:text-blue",
+                "flex cursor-pointer items-center border-t border-t-beige/40 px-4 py-4 transition-none duration-500 hover:text-blue",
               )}
               onClick={() => {
                 setActiveProject(project);
@@ -52,12 +52,12 @@ const MainDesktop = ({ activeProject, setActiveProject }: Props) => {
                   "h-3 w-3 animate-pulse items-center justify-center rounded-full bg-blue/50",
                 )}
               >
-                <div className="h-2 w-2 rounded-full border bg-blue duration-200" />
+                <div className="h-2 w-2 rounded-full border bg-blue duration-500" />
               </div>
               <p
                 className={cn(
                   project.name === activeProject.name && "ml-4 text-blue",
-                  "cursor-pointer transition-all duration-200 hover:text-blue",
+                  "cursor-pointer transition-all duration-200",
                 )}
               >
                 {project.name}
