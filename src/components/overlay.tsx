@@ -1,8 +1,15 @@
 import { motion } from "motion/react";
 
 import { overlay } from "@/animations";
+import { cn } from "@/utils";
 
-const Overlay = ({ onClick }: { onClick: () => void }) => {
+const Overlay = ({
+  onClick,
+  className,
+}: {
+  onClick: () => void;
+  className?: string;
+}) => {
   return (
     <motion.div
       variants={overlay}
@@ -10,7 +17,10 @@ const Overlay = ({ onClick }: { onClick: () => void }) => {
       animate="animate"
       exit="exit"
       id="overlay"
-      className="absolute bottom-0 left-0 right-0 top-0 z-20 cursor-pointer bg-black/60"
+      className={cn(
+        "absolute bottom-0 left-0 right-0 top-0 z-20 cursor-pointer bg-black/60",
+        className,
+      )}
       onClick={onClick}
     />
   );

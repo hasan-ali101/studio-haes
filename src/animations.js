@@ -22,3 +22,16 @@ export const overlay = {
     ease: [0.76, 0, 0.24, 1],
   },
 };
+
+export const video = {
+  initial: { opacity: "0%" },
+  animate: {
+    opacity: "100%",
+    transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1] },
+  },
+  exit: {
+    opacity: "0%",
+    transition: { duration: 1.5 },
+    ease: [0.76, 0, 0.24, 1],
+  },
+};

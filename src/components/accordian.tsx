@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { Plus, Scan } from "lucide-react";
@@ -28,7 +26,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "relative flex flex-1 items-center justify-between py-4 pr-4 font-medium transition-all [&[data-state=open]>svg]:scale-125 [&[data-state=open]]:text-lg [&[data-state=open]]:text-blue",
+        "relative flex flex-1 items-center justify-between py-4 pr-4 font-medium transition-all [&[data-state=open]>svg]:first:scale-125 [&[data-state=open]]:text-blue",
         className,
       )}
       {...props}
@@ -37,7 +35,7 @@ const AccordionTrigger = React.forwardRef<
       <Scan className="h-5 w-5 shrink-0 transition-transform duration-200"></Scan>
       <Plus
         size={16}
-        className="absolute right-[18px] shrink-0 transition-transform duration-200"
+        className="absolute right-[18px] shrink-0 resize-none transition-transform duration-200"
       />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>

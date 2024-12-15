@@ -1,17 +1,19 @@
-import { projects, ProjectType } from "@/data";
+import { ProjectType } from "@/types";
 import { cn } from "@/utils";
 import ProjectDetails from "@/components/project-details";
+import { Dispatch, SetStateAction } from "react";
 
 type Props = {
+  projects: ProjectType[];
   activeProject: ProjectType;
-  setActiveProject: (project: ProjectType) => void;
+  setActiveProject: Dispatch<SetStateAction<ProjectType>>;
 };
 
-const MainDesktop = ({ activeProject, setActiveProject }: Props) => {
+const MainDesktop = ({ projects, activeProject, setActiveProject }: Props) => {
   return (
     <div
       id="mediumPlus"
-      className="my-4 hidden h-fit w-full flex-1 grid-cols-12 overflow-auto md:grid"
+      className="my-4 hidden h-fit w-full flex-1 grid-cols-12 overflow-auto lg:grid"
     >
       <div className="col-span-3 flex h-full flex-col gap-y-4 overflow-auto border-r border-beige px-4 pb-8 pt-5">
         <p className="font-bold text-beige/60">ABOUT</p>
@@ -37,7 +39,7 @@ const MainDesktop = ({ activeProject, setActiveProject }: Props) => {
             <div
               key={i}
               className={cn(
-                project.name === activeProject.name
+                project.title === activeProject.title
                   ? "bg-blue/20 font-black"
                   : "font-semibold",
                 "flex cursor-pointer items-center border-t border-t-beige/40 px-4 py-4 transition-none duration-500 hover:text-blue",
@@ -48,7 +50,7 @@ const MainDesktop = ({ activeProject, setActiveProject }: Props) => {
             >
               <div
                 className={cn(
-                  project.name === activeProject.name ? "flex" : "hidden",
+                  project.title === activeProject.title ? "flex" : "hidden",
                   "h-3 w-3 animate-pulse items-center justify-center rounded-full bg-blue/50",
                 )}
               >
@@ -56,11 +58,11 @@ const MainDesktop = ({ activeProject, setActiveProject }: Props) => {
               </div>
               <p
                 className={cn(
-                  project.name === activeProject.name && "ml-4 text-blue",
+                  project.title === activeProject.title && "ml-4 text-blue",
                   "cursor-pointer transition-all duration-200",
                 )}
               >
-                {project.name}
+                {project.title}
               </p>
             </div>
           );

@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { Link } from "lucide-react";
 
 import { cn } from "@/utils";
-import { ProjectType } from "@/data";
-import Image from "next/image";
-import { Link } from "lucide-react";
+import { ProjectType } from "@/types";
+import VideoPlayer from "@/components/video-player";
+import Overlay from "./overlay";
 
 const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
   const [descriptionFormat, setDescriptionFormat] = useState("video");
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  console.log(isExpanded);
 
   return (
     <>
@@ -46,16 +50,35 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
           </div>
         </div>
       </div>
-
       <div className="flex flex-col items-start gap-6 py-6 md:pl-4 lg:pl-10">
         <div className="flex w-full justify-center">
-          <Image
-            src={activeProject.image}
-            className="h-54 w-full max-w-[600px] transition-all duration-500 hover:scale-[102%]"
-            width="676"
-            height="349"
-            alt=""
-          />
+          {isExpanded && (
+            <Overlay
+              className="z-40 hidden md:flex"
+              onClick={() => {
+                setIsExpanded(false);
+              }}
+            />
+          )}
+          <div
+            className={cn(
+              isExpanded
+                ? "md:fixed md:left-1/2 md:top-1/2 md:z-50 md:w-2/3 md:-translate-x-1/2 md:-translate-y-1/2 md:transform"
+                : "md:w-full",
+              "flex justify-center rounded-sm",
+            )}
+          >
+            {descriptionFormat === "video" && activeProject.videoUrl ? (
+              <VideoPlayer
+                isExpanded={isExpanded}
+                setIsExpanded={setIsExpanded}
+                url={activeProject.videoUrl}
+                id={activeProject.title}
+              />
+            ) : (
+              <p>{activeProject.description}</p>
+            )}
+          </div>
         </div>
         <p className="w-full tracking-wide text-white">
           {activeProject.summary}
