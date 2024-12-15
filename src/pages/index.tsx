@@ -28,7 +28,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
 
   const respondKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
-      sideBarActive && setSidebarActive(false);
+      setSidebarActive(false);
     }
   };
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "lucide-react";
 
 import { cn } from "@/utils";
@@ -10,7 +10,20 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
   const [descriptionFormat, setDescriptionFormat] = useState("video");
   const [isExpanded, setIsExpanded] = useState(false);
 
-  console.log(isExpanded);
+  const respondKeyDown = (e: KeyboardEvent) => {
+    console.log(e.key);
+    if (e.key === "Escape") {
+      setIsExpanded(false);
+    }
+  };
+
+  useEffect(() => {
+    console.log("ProjectDetails");
+    window.addEventListener("keydown", respondKeyDown);
+    return () => {
+      window.removeEventListener("keydown", respondKeyDown);
+    };
+  }, []);
 
   return (
     <>
