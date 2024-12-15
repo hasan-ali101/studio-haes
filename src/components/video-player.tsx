@@ -16,14 +16,6 @@ const VideoPlayer = ({
 }) => {
   const vidRef = useRef<HTMLVideoElement>(null);
 
-  const toggleVideoPlayback = () => {
-    if (vidRef.current?.paused) {
-      vidRef.current?.play();
-    } else {
-      vidRef.current?.pause();
-    }
-  };
-
   const expandVideo = () => {
     setIsExpanded(true);
   };

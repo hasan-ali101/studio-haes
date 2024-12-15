@@ -26,8 +26,6 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
   const [sideBarActive, setSidebarActive] = useState(false);
   const [sideBarSection, setSidebarSection] = useState("");
 
-  console.log(projects);
-
   const respondKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
       sideBarActive && setSidebarActive(false);
