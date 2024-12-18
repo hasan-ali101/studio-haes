@@ -27,6 +27,7 @@ const VideoPlayer = ({
       initial="initial"
       animate="animate"
       exit="exit"
+      playsInline
       key={id}
       className={cn(
         !isExpanded && "max-h-80",
