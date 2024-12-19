@@ -7,7 +7,6 @@ import {
   countryCodes,
   DEFAULT_COUNTRY,
 } from "@/data/country-codes";
-import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
@@ -29,8 +28,7 @@ export interface InputProps
   value: string;
 }
 
-interface InputMobileProps
-  extends Omit<InputProps, "type" | "placeholder" | "inputMode"> {}
+type InputMobileProps = Omit<InputProps, "type" | "placeholder" | "inputMode">;
 
 const getFlagEmoji = (countryCode: string): string => {
   const codePoints = countryCode

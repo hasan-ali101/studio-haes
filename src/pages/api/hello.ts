@@ -11,7 +11,7 @@ export default async function handler(
 
   const resend = new Resend("re_Rw9PrwiB_AT6N79trAChfUCmhdaQCzbhH");
 
-  const { data, error } = await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: "onboarding@resend.dev",
     to: "hasan15.06.96@gmail.com",
     subject: `${form.subject} - ${form.name} - ${form.email} - ${form.mobile}`,

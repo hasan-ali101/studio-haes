@@ -47,11 +47,17 @@ const InputLabelInner = ({
         className="px-3 pt-6 font-medium"
         onFocus={(e) => {
           setFocused(true);
-          onFocus && onFocus(e);
+          if (onFocus) {
+            onFocus(e);
+          }
         }}
         onBlur={(e) => {
-          !value && setFocused(false);
-          onBlur && onBlur(e);
+          if (!value) {
+            setFocused(false);
+          }
+          if (onBlur) {
+            onBlur(e);
+          }
         }}
       />
     </div>
