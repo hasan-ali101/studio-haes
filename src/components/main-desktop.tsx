@@ -15,9 +15,9 @@ const MainDesktop = ({ projects, activeProject, setActiveProject }: Props) => {
       id="mediumPlus"
       className="my-4 hidden h-fit w-full flex-1 grid-cols-12 overflow-auto lg:grid"
     >
-      <div className="col-span-3 flex h-full flex-col gap-y-4 overflow-auto border-r border-beige px-4 pb-8 pt-5">
-        <p className="font-bold text-beige/60">ABOUT</p>
-        <p className="font-semibold text-beige/60">ENGINEERING & DESIGN</p>
+      <div className="border-secondary col-span-3 flex h-full flex-col gap-y-4 overflow-auto border-r px-4 pb-8 pt-5">
+        <p className="text-secondary/60 font-bold">ABOUT</p>
+        <p className="text-secondary/60 font-semibold">ENGINEERING & DESIGN</p>
         <p className="mb-2 text-sm leading-6 tracking-wide text-white transition-all">
           Front-end engineer skilled in designing and developing intelligent web
           experiences. Front-end engineer experienced in designing and
@@ -25,24 +25,24 @@ const MainDesktop = ({ projects, activeProject, setActiveProject }: Props) => {
           In designing and developing intelligent web experiences. Front-end
           engineer.
         </p>
-        <p className="font-semibold text-beige/60">BACKGROUND</p>
+        <p className="text-secondary/60 font-semibold">BACKGROUND</p>
         <p className="text-sm leading-6 tracking-wide text-white">
           Front-end engineer skilled in designing and developing intelligent web
           experiences. Front-end engineer skilled in designing and developing
           intelligent web experiences. Front-end engineer
         </p>
       </div>
-      <div className="col-span-3 flex h-full flex-col overflow-auto border-r border-beige p-4">
-        <p className="mb-5 px-2 font-bold text-beige/60">PROJECTS</p>
+      <div className="border-secondary col-span-3 flex h-full flex-col overflow-auto border-r p-4">
+        <p className="text-secondary/60 mb-5 px-2 font-bold">PROJECTS</p>
         {projects.map((project, i) => {
           return (
             <div
               key={i}
               className={cn(
                 project.title === activeProject.title
-                  ? "bg-blue/20 font-black"
+                  ? "bg-primary/20 font-black"
                   : "font-semibold",
-                "flex cursor-pointer items-center border-t border-t-beige/40 px-4 py-4 transition-none duration-500 hover:text-blue",
+                "border-t-secondary/40 hover:text-primary flex cursor-pointer items-center border-t px-4 py-4 transition-none duration-500",
               )}
               onClick={() => {
                 setActiveProject(project);
@@ -51,14 +51,14 @@ const MainDesktop = ({ projects, activeProject, setActiveProject }: Props) => {
               <div
                 className={cn(
                   project.title === activeProject.title ? "flex" : "hidden",
-                  "h-3 w-3 animate-pulse items-center justify-center rounded-full bg-blue/50",
+                  "bg-primary/50 h-3 w-3 animate-pulse items-center justify-center rounded-full",
                 )}
               >
-                <div className="h-2 w-2 rounded-full border bg-blue duration-500" />
+                <div className="bg-primary h-2 w-2 rounded-full border duration-500" />
               </div>
               <p
                 className={cn(
-                  project.title === activeProject.title && "ml-4 text-blue",
+                  project.title === activeProject.title && "text-primary ml-4",
                   "cursor-pointer transition-all duration-200",
                 )}
               >

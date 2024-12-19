@@ -13,7 +13,7 @@ const Footer = ({ delayComplete }: { delayComplete: boolean }) => {
       className={cn(
         akira.className,
         delayComplete ? "h-20" : "h-16",
-        "mt-auto line-clamp-1 flex w-full items-center border-t border-beige text-lg text-blue/60 transition-all duration-700 md:text-2xl",
+        "border-secondary text-primary/60 mt-auto line-clamp-1 flex w-full items-center border-t text-lg transition-all duration-700 md:text-2xl",
       )}
     >
       <p className="line-clamp-1 overflow-x-auto">

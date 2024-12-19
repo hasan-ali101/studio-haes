@@ -30,8 +30,8 @@ const VideoPlayer = ({
       playsInline
       key={id}
       className={cn(
-        !isExpanded && "max-h-80",
-        "cursor-pointer rounded-sm transition-all",
+        !isExpanded && "max-h-80 hover:scale-[102%]",
+        "cursor-pointer rounded-sm transition-all duration-300",
       )}
       autoPlay
       muted
@@ -44,4 +44,4 @@ const VideoPlayer = ({
     </motion.video>
   );
 };
-export default VideoPlayer;
+export { VideoPlayer };

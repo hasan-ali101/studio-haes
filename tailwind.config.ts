@@ -11,8 +11,8 @@ export default {
       colors: {
         foreground: "var(--foreground)",
         background: "#727BA4",
-        beige: "#FFFBD2",
-        blue: "#C7E2F6",
+        secondary: "#FFFBD2",
+        primary: "#C7E2F6",
       },
       keyframes: {
         "accordion-down": {

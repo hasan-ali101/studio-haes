@@ -3,7 +3,7 @@ import { Link } from "lucide-react";
 
 import { cn } from "@/utils";
 import { ProjectType } from "@/types";
-import VideoPlayer from "@/components/video-player";
+import { VideoPlayer } from "@/components/ui/video-player";
 import Overlay from "./overlay";
 
 const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
@@ -28,7 +28,7 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
   return (
     <>
       <div className="flex justify-between">
-        <p className="mb-3 hidden font-bold text-beige/60 md:flex">
+        <p className="text-secondary/60 mb-3 hidden font-bold md:flex">
           PROJECT INFO
         </p>
         <div className="flex w-full justify-between gap-6 md:w-fit md:justify-start">
@@ -38,7 +38,7 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
                 setDescriptionFormat("video");
               }}
               className={cn(
-                descriptionFormat === "video" && "text-blue underline",
+                descriptionFormat === "video" && "text-primary underline",
                 "cursor-pointer",
               )}
             >
@@ -50,14 +50,14 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
                 setDescriptionFormat("text");
               }}
               className={cn(
-                descriptionFormat === "text" && "text-blue underline",
+                descriptionFormat === "text" && "text-primary underline",
                 "cursor-pointer",
               )}
             >
               Text
             </p>
           </div>
-          <div className="flex gap-x-1 font-semibold text-blue">
+          <div className="text-primary flex gap-x-1 font-semibold">
             <p>Link</p>
             <Link className="mt-1 h-4 w-4" />
           </div>
@@ -77,7 +77,7 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
             className={cn(
               isExpanded
                 ? "md:fixed md:left-1/2 md:top-1/2 md:z-50 md:w-2/3 md:-translate-x-1/2 md:-translate-y-1/2 md:transform"
-                : "md:w-full",
+                : "transition-all duration-100 md:w-full",
               "flex justify-center rounded-sm",
             )}
           >

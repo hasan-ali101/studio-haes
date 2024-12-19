@@ -24,7 +24,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
   const [activeProject, setActiveProject] = useState(projects[0]);
   const [delayComplete, setDelayComplete] = useState(false);
   const [sideBarActive, setSidebarActive] = useState(false);
-  const [sideBarSection, setSidebarSection] = useState("");
+  const [sideBarSection, setSidebarSection] = useState<"cv" | "contact">();
 
   const respondKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
@@ -41,8 +41,8 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
   }, []);
 
   useEffect(() => {
-    if (!sideBarActive && sideBarSection !== "") {
-      setSidebarSection("");
+    if (!sideBarActive && sideBarSection) {
+      setSidebarSection(undefined);
     }
   }, [sideBarActive, sideBarSection]);
 
@@ -62,14 +62,14 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
       />
       <div
         className={cn(
-          sideBarActive && "scale-125",
-          "absolute right-8 top-1 z-50 flex items-center text-lg font-semibold text-blue transition-transform delay-300 duration-500 sm:right-10 md:right-14 md:top-2 md:gap-3 md:text-xl",
+          sideBarActive && "scale-110",
+          "text-primary absolute right-8 top-1 z-50 flex items-center text-lg font-semibold transition-transform delay-300 duration-500 sm:right-10 md:right-14 md:top-2 md:gap-3 md:text-xl",
         )}
       >
         <button
           className={cn(
-            sideBarSection === "cv" && "bg-blue/20",
-            "rounded-sm border-blue p-2 outline-none ring-transparent transition-colors hover:bg-blue/20 md:px-3",
+            sideBarSection === "cv" && "bg-primary/20",
+            "border-primary hover:bg-primary/20 rounded-sm p-2 outline-none ring-transparent transition-colors md:px-3",
           )}
           onClick={() => {
             setSidebarActive(true);
@@ -80,8 +80,8 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
         </button>
         <button
           className={cn(
-            sideBarSection === "contact" && "bg-blue/20",
-            "rounded-sm border-blue p-2 outline-none ring-transparent transition-colors hover:bg-blue/20 md:px-3",
+            sideBarSection === "contact" && "bg-primary/20",
+            "border-primary hover:bg-primary/20 rounded-sm p-2 outline-none ring-transparent transition-colors md:px-3",
           )}
           onClick={() => {
             setSidebarActive(true);
@@ -94,7 +94,10 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
       <AnimatePresence mode="wait">
         {sideBarActive && (
           <>
-            <SideBar setSidebarActive={setSidebarActive} />
+            <SideBar
+              setSidebarActive={setSidebarActive}
+              section={sideBarSection}
+            />
             <Overlay
               onClick={() => {
                 setSidebarActive(false);

@@ -3,14 +3,33 @@ import { motion } from "motion/react";
 import { Dispatch, SetStateAction } from "react";
 
 import { sideBar } from "@/animations";
-import Overlay from "./overlay";
+import Overlay from "@/components/overlay";
 import Curve from "@/components/curve";
+import type { ContactForm as ContactFormType } from "@/components/contact-form";
+import ContactForm from "@/components/contact-form";
 
 const SideBar = ({
   setSidebarActive,
+  section,
 }: {
   setSidebarActive: Dispatch<SetStateAction<boolean>>;
+  section?: "cv" | "contact";
 }) => {
+  const handleSubmitContactForm = async (data: ContactFormType) => {
+    const res = await fetch("/api/hello", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (res.ok) {
+      setSidebarActive(false);
+    } else {
+      console.error("Failed to submit form");
+    }
+  };
+
   return (
     <>
       <Overlay
@@ -23,18 +42,24 @@ const SideBar = ({
         initial="initial"
         animate="animate"
         exit="exit"
-        className="absolute right-0 z-40 h-full w-full bg-background/80 md:w-1/2"
+        className="absolute right-0 z-40 h-full w-full max-w-[600px] bg-background/90 md:w-1/2"
       >
-        <div className="relative flex h-full w-full px-8 pt-3">
+        <div className="relative flex h-full w-full flex-col gap-8 pl-4 pt-3 md:pl-8">
           <Curve />
-
           <SquareX
             size={36}
-            className="cursor-pointer text-blue"
+            className="text-primary cursor-pointer"
             onClick={() => {
               setSidebarActive(false);
             }}
           />
+          <div className="ml-2 flex h-full w-full flex-col overflow-y-auto pr-32 text-lg">
+            {section === "contact" ? (
+              <ContactForm onSubmit={handleSubmitContactForm} />
+            ) : (
+              <p>CV</p>
+            )}
+          </div>
         </div>
       </motion.div>
     </>
