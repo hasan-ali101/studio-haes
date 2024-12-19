@@ -49,11 +49,14 @@ const ContactForm = ({
 
   return (
     <div className="flex flex-col gap-y-4">
-      <h1 className="text-secondary/70 text-xl font-bold">GET IN TOUCH</h1>
+      <h1 className="text-secondary/70 text-xl font-medium">GET IN TOUCH</h1>
+      <p className="text-sm">
+        If you&apos;d like to get in touch with me, you can use the form below:
+      </p>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6 pb-20 md:space-y-8"
+          className="space-y-6 pb-20"
         >
           <FormField
             control={form.control}
@@ -62,7 +65,7 @@ const ContactForm = ({
               <FormItem>
                 <FormControl>
                   <InputLabelInner
-                    className="max-w-96"
+                    className="max-w-96 bg-white/5"
                     label="Name"
                     {...field}
                   />

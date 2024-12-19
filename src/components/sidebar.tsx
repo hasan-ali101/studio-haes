@@ -7,6 +7,7 @@ import Overlay from "@/components/overlay";
 import Curve from "@/components/curve";
 import type { ContactForm as ContactFormType } from "@/components/contact-form";
 import ContactForm from "@/components/contact-form";
+import Image from "next/image";
 
 const SideBar = ({
   setSidebarActive,
@@ -46,6 +47,13 @@ const SideBar = ({
       >
         <div className="relative flex h-full w-full flex-col gap-8 pl-4 pt-3 md:pl-8">
           <Curve />
+          <Image
+            src="/starry-night.jpg"
+            className="absolute -z-10 h-full w-full min-w-[1000px] opacity-[0.07]"
+            width={1000}
+            height={1000}
+            alt="-"
+          />
           <SquareX
             size={36}
             className="text-primary cursor-pointer"

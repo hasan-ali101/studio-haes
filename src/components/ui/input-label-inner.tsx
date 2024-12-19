@@ -4,11 +4,11 @@ import * as React from "react";
 
 import { Label } from "./label";
 import { Input } from "./input";
-import type { InputProps } from "./input";
 
 import { cn } from "@/utils";
 
-export interface InputLabelInnerProps extends InputProps {
+export interface InputLabelInnerProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   value: string;
 }
