@@ -65,7 +65,45 @@ const SideBar = ({
             {section === "contact" ? (
               <ContactForm onSubmit={handleSubmitContactForm} />
             ) : (
-              <p>CV</p>
+              <div className="flex flex-col gap-4">
+                <p className="text-secondary/70">WORK HISTORY</p>
+                <div className="flex w-full flex-col gap-6">
+                  <p className="">NOVA Wealth</p>
+                  <div className="flex justify-between gap-2 rounded-md border bg-white/10 p-2 text-sm">
+                    <p className="font-semibold">Software Developer</p>
+                    <p className="text-xs">December 2024 - Present</p>
+                  </div>
+                  <div className="flex justify-between gap-2 rounded-md border bg-white/10 p-2 text-sm">
+                    <p className="font-semibold">Junior Software Developer</p>
+                    <p className="text-xs">May 2024 - December 2024</p>
+                  </div>
+                  <div className="flex justify-between gap-2 rounded-md border bg-white/10 p-2 text-sm">
+                    <p className="font-semibold">Operations Analyst</p>
+                    <p className="text-xs">May 2022 - May 2024</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-12 gap-5">
+                  <p className="text-secondary/70 col-span-12">EDUCATION</p>
+                  <div className="col-span-6 rounded-md border bg-white/10 p-2 text-sm">
+                    <p className="font-semibold">University of Bristol</p>
+                    <p> LLM Human Rights Law</p>
+                    <p>Merit (65%)</p>
+                  </div>
+                  <div className="col-span-6 rounded-md border bg-white/10 p-2 text-sm">
+                    <p className="font-semibold">University of York</p>
+                    <p>LLB Law</p>
+                    <p>First-class Honours (70%)</p>
+                  </div>
+                  <div className="col-span-6 rounded-md border bg-white/10 p-2 text-sm">
+                    <p className="font-semibold">A-Levels</p>
+                    <p>Physics A* | Biology A | Maths B</p>
+                  </div>
+                  <div className="col-span-6 rounded-md border bg-white/10 p-2 text-sm">
+                    <p className="font-semibold">GCSEs</p>
+                    <p>4A*s | 4As | 2Bs</p>
+                  </div>
+                </div>
+              </div>
             )}
           </div>
         </div>

@@ -51,7 +51,8 @@ const ContactForm = ({
     <div className="flex flex-col gap-y-4">
       <h1 className="text-secondary/70 text-xl font-medium">GET IN TOUCH</h1>
       <p className="text-sm">
-        If you&apos;d like to get in touch with me, you can use the form below:
+        Use the form below to send me a message. I'll get back to you as soon as
+        possible.
       </p>
       <Form {...form}>
         <form
@@ -130,7 +131,7 @@ const ContactForm = ({
                 <FormControl>
                   <Textarea
                     className="h-48 max-w-96 bg-white/5"
-                    placeholder="Wrire your message here..."
+                    placeholder="Write your message here..."
                     {...field}
                   />
                 </FormControl>
