@@ -10,19 +10,18 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
   const [descriptionFormat, setDescriptionFormat] = useState("video");
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const respondKeyDown = (e: KeyboardEvent) => {
-    console.log(e.key);
-    if (e.key === "Escape") {
-      setIsExpanded(false);
-    }
-  };
-
   useEffect(() => {
+    const respondKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsExpanded(false);
+      }
+    };
+
     window.addEventListener("keydown", respondKeyDown);
     return () => {
       window.removeEventListener("keydown", respondKeyDown);
     };
-  }, [respondKeyDown]);
+  }, []);
 
   useEffect(() => {
     setDescriptionFormat("video");

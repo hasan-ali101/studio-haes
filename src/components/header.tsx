@@ -1,18 +1,19 @@
 import { cn } from "@/utils";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import localFont from "next/font/local";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 const akira = localFont({
   src: "../pages/fonts/Akira.otf",
 });
 
-const Header = () => {
-  const [delayComplete, setDelayComplete] = useState(false);
-
-  useEffect(() => {
-    setDelayComplete(true);
-  }, []);
+const Header = ({
+  mounted,
+  setSidebarActive,
+}: {
+  mounted: boolean;
+  setSidebarActive: Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
     <>
       <div
@@ -33,11 +34,18 @@ const Header = () => {
             <Github className="border-primary hover:bg-primary/20 h-8 w-8 rounded-lg p-1 transition-colors md:h-9 md:w-9" />
           </a>
         </div>
+
+        <Mail
+          className="border-primary hover:bg-primary/20 h-8 w-8 cursor-pointer rounded-lg p-1 transition-colors md:h-9 md:w-9"
+          onClick={() => {
+            setSidebarActive(true);
+          }}
+        />
       </div>
       <div
         id="haes"
         className={cn(
-          delayComplete ? "py-2 md:py-4" : "py-1 md:py-2",
+          mounted ? "py-2 md:py-4" : "py-1 md:py-2",
           akira.className,
           `items border-y-secondary flex w-full items-center justify-between overflow-y-clip border-y text-center transition-all duration-700`,
         )}

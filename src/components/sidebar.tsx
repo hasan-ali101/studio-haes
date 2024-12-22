@@ -43,7 +43,7 @@ const SideBar = ({
         exit="exit"
         className="absolute right-0 z-40 h-full w-full max-w-[600px] bg-background/90"
       >
-        <div className="relative flex h-full w-full flex-col gap-8 pl-4 pt-3 md:pl-8">
+        <div className="relative flex h-full w-full flex-col gap-2 pl-4 pr-24 pt-3 sm:pr-32 md:pl-8">
           <Curve />
           <Image
             src="/starry-night.jpg"
@@ -52,14 +52,16 @@ const SideBar = ({
             height={1000}
             alt="-"
           />
-          <SquareX
-            size={36}
-            className="text-primary cursor-pointer"
-            onClick={() => {
-              setSidebarActive(false);
-            }}
-          />
-          <div className="ml-2 flex h-full w-full flex-col overflow-y-auto pr-24 text-lg sm:pr-32">
+          <div className="flex w-full justify-end">
+            <SquareX
+              size={36}
+              className="text-primary mr-4 cursor-pointer"
+              onClick={() => {
+                setSidebarActive(false);
+              }}
+            />
+          </div>
+          <div className="ml-2 flex h-full w-full flex-col overflow-y-auto text-lg">
             <ContactForm onSubmit={handleSubmitContactForm} />
           </div>
         </div>

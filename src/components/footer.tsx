@@ -13,7 +13,7 @@ const Footer = ({ delayComplete }: { delayComplete: boolean }) => {
       className={cn(
         akira.className,
         delayComplete ? "h-20" : "h-16",
-        "border-secondary text-primary/60 max-w-[100%] items-center overflow-hidden border-t text-xl transition-all duration-700",
+        "border-secondary text-primary/70 max-w-[100%] items-center overflow-hidden border-t text-xl transition-all duration-700",
       )}
     >
       <div className="animate-marquee inline-block overflow-hidden whitespace-nowrap lg:mt-6">

@@ -49,13 +49,13 @@ const ContactForm = ({
 
   return (
     <div className="mb-10 flex max-w-96 flex-col gap-y-4">
-      <h1 className="text-secondary/70 text-lg font-medium">GET IN TOUCH</h1>
+      <h1 className="text-secondary/70 text-xl font-semibold">GET IN TOUCH</h1>
       <p className="text-sm">
-        Use the form below to send me a message. I&apos;ll get back to you as
+        Use the form below to send me a message; I&apos;ll get back to you as
         soon as possible.
       </p>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
           <FormField
             control={form.control}
             name="name"
@@ -136,7 +136,7 @@ const ContactForm = ({
               </FormItem>
             )}
           />
-          <Button variant={"secondary"} className="w-40" type="submit">
+          <Button className="w-40" type="submit">
             Submit
           </Button>
         </form>

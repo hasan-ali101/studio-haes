@@ -71,7 +71,7 @@ export const InputMobile = ({
     <div className={cn("flex gap-1 bg-slate-100", className)}>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <Button className="h-[50px] w-20 justify-between border">
+          <Button className="h-[50px] w-20 justify-between rounded-none border-white bg-transparent text-lg">
             {getFlagEmoji(countryCode.code)}
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
@@ -84,7 +84,7 @@ export const InputMobile = ({
               <CommandGroup>
                 {countryCodes.map((item) => (
                   <CommandItem
-                    className="cursor-pointer bg-slate-100 hover:bg-white/90"
+                    className="hover:bg-primary/80 cursor-pointer bg-slate-100"
                     key={item.code}
                     value={`${item.name} (${item.dialCode})`}
                     onSelect={() => {
