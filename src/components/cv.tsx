@@ -82,11 +82,14 @@ const CV = () => {
   return (
     <div className="flex flex-col gap-4 overflow-auto pb-10 text-sm">
       <p className="text-secondary/70 text-lg">WORK HISTORY</p>
-      {jobs.map((job) => (
-        <div className="flex w-full flex-col gap-4 border border-white/30 p-2">
+      {jobs.map((job, i) => (
+        <div
+          key={i}
+          className="flex w-full flex-col gap-4 border border-white/30 p-2"
+        >
           <p className="font-bold">{job.company}</p>
-          {job.roles.map((role) => (
-            <div className="flex flex-col">
+          {job.roles.map((role, i) => (
+            <div key={i} className="flex flex-col">
               <div className="bg-primary/20 flex justify-between gap-2 border p-2">
                 <p className="font-semibold">{role.title}</p>
                 <p className="text-xs">
@@ -125,11 +128,14 @@ const CV = () => {
 
       <p className="text-secondary/70 text-lg">VOLUNTARY WORK</p>
 
-      {volunteerJobs.map((job) => (
-        <div className="flex w-full flex-col gap-4 border border-white/30 p-2">
+      {volunteerJobs.map((job, i) => (
+        <div
+          key={i}
+          className="flex w-full flex-col gap-4 border border-white/30 p-2"
+        >
           <p className="font-bold">{job.company}</p>
-          {job.roles.map((role) => (
-            <div className="flex flex-col">
+          {job.roles.map((role, i) => (
+            <div key={i} className="flex flex-col">
               <div className="bg-primary/20 flex justify-between gap-2 border p-2">
                 <p className="font-semibold">{role.title}</p>
                 <p className="text-xs">
