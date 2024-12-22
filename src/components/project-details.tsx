@@ -18,12 +18,15 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
   };
 
   useEffect(() => {
-    console.log("ProjectDetails");
     window.addEventListener("keydown", respondKeyDown);
     return () => {
       window.removeEventListener("keydown", respondKeyDown);
     };
-  }, []);
+  }, [respondKeyDown]);
+
+  useEffect(() => {
+    setDescriptionFormat("video");
+  }, [activeProject]);
 
   return (
     <>

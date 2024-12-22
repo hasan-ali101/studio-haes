@@ -26,8 +26,18 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
   const [sideBarActive, setSidebarActive] = useState(false);
 
   const respondKeyDown = (e: KeyboardEvent) => {
+    const index = projects.indexOf(activeProject);
+
     if (e.key === "Escape") {
       setSidebarActive(false);
+    } else if (e.key === "ArrowDown") {
+      if (index < projects.length - 1) {
+        setActiveProject(projects[index + 1]);
+      }
+    } else if (e.key === "ArrowUp") {
+      if (index > 0) {
+        setActiveProject(projects[index - 1]);
+      }
     }
   };
 
@@ -37,7 +47,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
     return () => {
       window.removeEventListener("keydown", respondKeyDown);
     };
-  }, []);
+  }, [respondKeyDown]);
 
   return (
     <div
@@ -56,17 +66,16 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
       <div
         className={cn(
           sideBarActive && "scale-110",
-          "text-primary absolute right-8 top-1 z-50 flex items-center text-lg font-semibold transition-transform delay-300 duration-500 sm:right-10 md:right-14 md:top-2 md:gap-3 md:text-xl",
+          "text-primary absolute right-8 top-1 z-50 flex items-center text-lg font-semibold transition-transform delay-300 duration-500 sm:right-10 md:right-16 md:top-2 md:gap-3 md:text-xl",
         )}
       >
-        <button
+        {/* <button
           className="border-primary hover:bg-primary/20 rounded-sm p-2 outline-none ring-transparent transition-colors md:px-3"
           onClick={() => {
-            // setSidebarActive(true);
           }}
         >
           CV
-        </button>
+        </button> */}
         <button
           className={cn(
             sideBarActive && "bg-primary/20",
@@ -76,10 +85,11 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
             setSidebarActive(true);
           }}
         >
-          Contact
+          Contact me
         </button>
       </div>
-      <AnimatePresence mode="wait">
+
+      <AnimatePresence>
         {sideBarActive && (
           <>
             <SideBar setSidebarActive={setSidebarActive} />

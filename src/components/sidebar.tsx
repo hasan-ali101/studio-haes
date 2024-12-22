@@ -59,7 +59,7 @@ const SideBar = ({
               setSidebarActive(false);
             }}
           />
-          <div className="ml-2 flex h-full w-full flex-col overflow-y-auto pr-32 text-lg">
+          <div className="ml-2 flex h-full w-full flex-col overflow-y-auto pr-24 text-lg sm:pr-32">
             <ContactForm onSubmit={handleSubmitContactForm} />
           </div>
         </div>

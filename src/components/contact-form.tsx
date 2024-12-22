@@ -48,17 +48,14 @@ const ContactForm = ({
   });
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="mb-10 flex max-w-96 flex-col gap-y-4">
       <h1 className="text-secondary/70 text-lg font-medium">GET IN TOUCH</h1>
       <p className="text-sm">
         Use the form below to send me a message. I&apos;ll get back to you as
         soon as possible.
       </p>
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6 pb-20"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
             name="name"
@@ -66,7 +63,7 @@ const ContactForm = ({
               <FormItem>
                 <FormControl>
                   <InputLabelInner
-                    className="max-w-96 bg-white/5"
+                    className="bg-white/5"
                     label="Name"
                     {...field}
                   />
@@ -82,7 +79,7 @@ const ContactForm = ({
               <FormItem>
                 <FormControl>
                   <InputLabelInner
-                    className="max-w-96 bg-white/5"
+                    className="bg-white/5"
                     label="Email"
                     {...field}
                   />
@@ -98,7 +95,7 @@ const ContactForm = ({
               <FormItem>
                 <FormControl>
                   <InputMobile
-                    className="max-w-96 bg-white/5"
+                    className="bg-white/5"
                     {...field}
                     value={field.value}
                   />
@@ -114,7 +111,7 @@ const ContactForm = ({
               <FormItem>
                 <FormControl>
                   <InputLabelInner
-                    className="max-w-96 bg-white/5"
+                    className="= bg-white/5"
                     label="Subject"
                     {...field}
                   />
@@ -130,7 +127,7 @@ const ContactForm = ({
               <FormItem>
                 <FormControl>
                   <Textarea
-                    className="h-48 max-w-96 bg-white/5"
+                    className="h-48 bg-white/5"
                     placeholder="Write your message here..."
                     {...field}
                   />

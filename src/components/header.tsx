@@ -42,13 +42,13 @@ const Header = () => {
           `items border-y-secondary flex w-full items-center justify-between overflow-y-clip border-y text-center transition-all duration-700`,
         )}
       >
-        <div className="mx-3 flex flex-1 items-center gap-1">
+        <div className="mx-3 flex flex-1 items-center gap-x-1">
           <div className="border-secondary ml-2 flex-1 border-t-[0.5px] md:ml-8 lg:ml-12" />
         </div>
         <h1 className="text-primary text-center text-4xl md:mx-2 md:text-5xl lg:text-6xl">
           STUDIO HAES
         </h1>
-        <div className="mx-3 flex flex-1 items-center gap-1">
+        <div className="mx-3 flex flex-1 items-center gap-x-1">
           <div className="border-secondary mr-2 flex-1 border-t-[0.5px] md:ml-8 lg:mr-12" />
         </div>
       </div>
