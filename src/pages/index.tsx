@@ -22,9 +22,8 @@ const PROJECTS_QUERY = `*[
 
 export default function Home({ projects }: { projects: ProjectType[] }) {
   const [activeProject, setActiveProject] = useState(projects[0]);
-  const [delayComplete, setDelayComplete] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [sideBarActive, setSidebarActive] = useState(false);
-  const [sideBarSection, setSidebarSection] = useState<"cv" | "contact">();
 
   const respondKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
@@ -33,18 +32,12 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
   };
 
   useEffect(() => {
-    setDelayComplete(true);
+    setMounted(true);
     window.addEventListener("keydown", respondKeyDown);
     return () => {
       window.removeEventListener("keydown", respondKeyDown);
     };
   }, []);
-
-  useEffect(() => {
-    if (!sideBarActive && sideBarSection) {
-      setSidebarSection(undefined);
-    }
-  }, [sideBarActive, sideBarSection]);
 
   return (
     <div
@@ -67,25 +60,20 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
         )}
       >
         <button
-          className={cn(
-            sideBarSection === "cv" && "bg-primary/20",
-            "border-primary hover:bg-primary/20 rounded-sm p-2 outline-none ring-transparent transition-colors md:px-3",
-          )}
+          className="border-primary hover:bg-primary/20 rounded-sm p-2 outline-none ring-transparent transition-colors md:px-3"
           onClick={() => {
-            setSidebarActive(true);
-            setSidebarSection("cv");
+            // setSidebarActive(true);
           }}
         >
           CV
         </button>
         <button
           className={cn(
-            sideBarSection === "contact" && "bg-primary/20",
+            sideBarActive && "bg-primary/20",
             "border-primary hover:bg-primary/20 rounded-sm p-2 outline-none ring-transparent transition-colors md:px-3",
           )}
           onClick={() => {
             setSidebarActive(true);
-            setSidebarSection("contact");
           }}
         >
           Contact
@@ -94,10 +82,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
       <AnimatePresence mode="wait">
         {sideBarActive && (
           <>
-            <SideBar
-              setSidebarActive={setSidebarActive}
-              section={sideBarSection}
-            />
+            <SideBar setSidebarActive={setSidebarActive} />
             <Overlay
               onClick={() => {
                 setSidebarActive(false);
@@ -119,7 +104,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
           projects={projects}
           activeProject={activeProject}
         />
-        <Footer delayComplete={delayComplete} />
+        <Footer delayComplete={mounted} />
       </div>
     </div>
   );

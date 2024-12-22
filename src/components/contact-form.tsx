@@ -49,7 +49,7 @@ const ContactForm = ({
 
   return (
     <div className="flex flex-col gap-y-4">
-      <h1 className="text-secondary/70 text-xl font-medium">GET IN TOUCH</h1>
+      <h1 className="text-secondary/70 text-lg font-medium">GET IN TOUCH</h1>
       <p className="text-sm">
         Use the form below to send me a message. I'll get back to you as soon as
         possible.
