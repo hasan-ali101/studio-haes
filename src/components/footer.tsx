@@ -13,13 +13,41 @@ const Footer = ({ delayComplete }: { delayComplete: boolean }) => {
       className={cn(
         akira.className,
         delayComplete ? "h-20" : "h-16",
-        "border-secondary text-primary/60 mt-auto line-clamp-1 flex w-full items-center border-t text-lg transition-all duration-700 md:text-2xl",
+        "border-secondary text-primary/60 max-w-[100%] items-center overflow-hidden border-t text-xl transition-all duration-700",
       )}
     >
-      <p className="line-clamp-1 overflow-x-auto">
-        ANGELs CAN FLY BECAUSE THEY TAKE THESELVES LIGHTLY - JUST AS THE OCEAN
-        WAVES, THE WORLD PEOPLES - ANGEL CAN FLY BECAUSE THEY TAKE
-      </p>
+      <div className="animate-marquee inline-block overflow-hidden whitespace-nowrap lg:mt-6">
+        <p className="inline-block">
+          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+        </p>
+        <p className="inline-block">
+          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
+        </p>
+        <p className="inline-block">
+          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+        </p>
+        <p className="inline-block">
+          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
+        </p>
+        <p className="inline-block">
+          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+        </p>
+        <p className="inline-block">
+          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
+        </p>
+        <p className="inline-block">
+          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+        </p>
+        <p className="inline-block">
+          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
+        </p>
+        <p className="inline-block">
+          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+        </p>
+        <p className="inline-block">
+          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
+        </p>
+      </div>
     </div>
   );
 };
