@@ -57,7 +57,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
       )}
     >
       <BackgroundImage />
-      <div className="z-10 flex h-screen flex-col px-6 sm:px-12">
+      <div className="z-10 flex h-lvh flex-col px-6 sm:px-12">
         <Header mounted={mounted} setSidebarActive={setSidebarActive} />
         <MainDesktop
           projects={projects}
