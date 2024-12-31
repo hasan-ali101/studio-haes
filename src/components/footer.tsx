@@ -12,11 +12,11 @@ const Footer = ({ delayComplete }: { delayComplete: boolean }) => {
       id="footer"
       className={cn(
         akira.className,
-        delayComplete ? "h-20" : "h-16",
-        "border-secondary text-primary/70 max-w-[100%] items-center overflow-hidden border-t text-xl transition-all duration-700",
+        delayComplete ? "py-4" : "py-3",
+        "max-w-[100%] items-center overflow-hidden border-t border-secondary text-xl text-primary/70 transition-all duration-700",
       )}
     >
-      <div className="animate-marquee inline-block overflow-hidden whitespace-nowrap lg:mt-6">
+      <div className="inline-block animate-marquee overflow-hidden whitespace-nowrap">
         <p className="inline-block">
           ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
         </p>

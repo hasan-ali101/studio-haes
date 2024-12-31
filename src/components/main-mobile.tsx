@@ -18,7 +18,7 @@ type Props = {
 
 const MainMobile = ({ activeProject, projects, setActiveProject }: Props) => {
   return (
-    <div className="my-8 flex w-full flex-col gap-4 overflow-y-scroll lg:hidden">
+    <div className="my-8 flex h-full w-full flex-col gap-4 overflow-auto lg:hidden">
       <div className="flex flex-col gap-1">
         <p className="font-semibold text-secondary/60">PROJECTS</p>
         <div className="border-t border-secondary/50">
@@ -46,8 +46,8 @@ const MainMobile = ({ activeProject, projects, setActiveProject }: Props) => {
             })}
           </Accordion>
         </div>
+        <About />
       </div>
-      <About />
     </div>
   );
 };

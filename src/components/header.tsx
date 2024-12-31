@@ -47,13 +47,13 @@ const Header = ({
         className={cn(
           mounted ? "py-2 md:py-4" : "py-1 md:py-2",
           akira.className,
-          `items flex w-full items-center justify-between overflow-y-clip border-y border-y-secondary text-center transition-all duration-700`,
+          `items flex w-full items-center justify-between border-y border-y-secondary text-center transition-all duration-700`,
         )}
       >
         <div className="mx-3 flex flex-1 items-center md:gap-x-1">
           <div className="ml-2 flex-1 border-t-[0.5px] border-secondary md:ml-8 lg:ml-12" />
         </div>
-        <h1 className="text-center text-2xl text-primary md:mx-2 md:text-5xl lg:text-6xl">
+        <h1 className="text-center text-4xl text-primary md:mx-2 md:text-5xl lg:text-6xl">
           STUDIO HAES
         </h1>
         <div className="mx-3 flex flex-1 items-center md:gap-x-1">
