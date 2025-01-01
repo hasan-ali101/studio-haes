@@ -53,7 +53,7 @@ const Header = ({
         <div className="mx-3 flex flex-1 items-center md:gap-x-1">
           <div className="ml-2 flex-1 border-t-[0.5px] border-secondary md:ml-8 lg:ml-12" />
         </div>
-        <h1 className="text-center text-4xl text-primary md:mx-2 md:text-5xl lg:text-6xl">
+        <h1 className="text-center text-2xl text-primary sm:text-4xl md:mx-2 md:text-5xl lg:text-6xl">
           STUDIO HAES
         </h1>
         <div className="mx-3 flex flex-1 items-center md:gap-x-1">
