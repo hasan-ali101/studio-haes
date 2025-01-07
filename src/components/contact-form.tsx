@@ -49,7 +49,7 @@ const ContactForm = ({
 
   return (
     <div className="mb-10 flex max-w-96 flex-col gap-y-4">
-      <h1 className="text-secondary/70 text-xl font-semibold">GET IN TOUCH</h1>
+      <h1 className="text-xl font-semibold text-secondary/70">GET IN TOUCH</h1>
       <p className="text-sm">
         Use the form below to send me a message; I&apos;ll get back to you as
         soon as possible.
@@ -127,7 +127,7 @@ const ContactForm = ({
               <FormItem>
                 <FormControl>
                   <Textarea
-                    className="h-48 bg-white/5"
+                    className="h-32 bg-white/5 md:h-48"
                     placeholder="Write your message here..."
                     {...field}
                   />
