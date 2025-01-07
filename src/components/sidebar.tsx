@@ -8,14 +8,17 @@ import Overlay from "@/components/overlay";
 import Curve from "@/components/curve";
 import type { ContactForm as ContactFormType } from "@/components/contact-form";
 import ContactForm from "@/components/contact-form";
+import { useToast } from "@/hooks/use-toast";
 
 const SideBar = ({
   setSidebarActive,
 }: {
   setSidebarActive: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const { toast } = useToast();
+
   const handleSubmitContactForm = async (data: ContactFormType) => {
-    const res = await fetch("/api/hello", {
+    const res = await fetch("/api/contact-form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,8 +27,17 @@ const SideBar = ({
     });
     if (res.ok) {
       setSidebarActive(false);
+      toast({
+        title: "Message Sent Successfully",
+        description: "Thanks for getting in touch, I'll get back to you soon!",
+      });
     } else {
-      console.error("Failed to submit form");
+      setSidebarActive(false);
+      toast({
+        variant: "destructive",
+        title: "Message Failed to send",
+        description: "Please email me at hsnali1506@gmail.com instead!",
+      });
     }
   };
 
@@ -55,7 +67,7 @@ const SideBar = ({
           <div className="flex w-full justify-end">
             <SquareX
               size={36}
-              className="text-primary mr-4 cursor-pointer"
+              className="mr-4 cursor-pointer text-primary"
               onClick={() => {
                 setSidebarActive(false);
               }}
