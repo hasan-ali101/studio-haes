@@ -4,7 +4,7 @@ import { Archivo } from "next/font/google";
 import { AnimatePresence } from "motion/react";
 import { type SanityDocument } from "next-sanity";
 
-import Header from "@/components/header";
+import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import SideBar from "@/components/sidebar";
 import Overlay from "@/components/overlay";
@@ -13,12 +13,9 @@ import MainMobile from "@/components/main-mobile";
 import { cn } from "@/utils";
 import { ProjectType } from "@/types";
 import BackgroundImage from "@/components/background-image";
+import { PROJECTS_QUERY } from "@/sanity/queries";
 
 const archivo = Archivo({ subsets: ["latin"], weight: "400" });
-
-const PROJECTS_QUERY = `*[
-  _type == "project"
-]|order(publishedAt desc)[0...12]{ title, summary, description,"videoUrl": video.asset->url}`;
 
 export default function Home({ projects }: { projects: ProjectType[] }) {
   const [activeProject, setActiveProject] = useState(projects[0]);
@@ -58,7 +55,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
     >
       <BackgroundImage />
       <div className="z-10 flex h-svh flex-col px-6 sm:px-12">
-        <Header mounted={mounted} setSidebarActive={setSidebarActive} />
+        <Nav mounted={mounted} setSidebarActive={setSidebarActive} />
         <MainDesktop
           projects={projects}
           activeProject={activeProject}
@@ -88,7 +85,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
 }
 
 export async function getStaticProps() {
-  const projects = await client.fetch<SanityDocument[]>(PROJECTS_QUERY, {});
+  const projects = await client.fetch(PROJECTS_QUERY);
 
   return {
     props: {

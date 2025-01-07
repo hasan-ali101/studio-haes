@@ -3,4 +3,5 @@ export type ProjectType = {
   summary: string;
   videoUrl: string;
   description: string;
+  link?: string;
 };

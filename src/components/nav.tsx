@@ -7,7 +7,7 @@ const akira = localFont({
   src: "../pages/fonts/Akira.otf",
 });
 
-const Header = ({
+const Nav = ({
   mounted,
   setSidebarActive,
 }: {
@@ -50,13 +50,13 @@ const Header = ({
           `items flex w-full items-center justify-between border-y border-y-secondary text-center transition-all duration-700`,
         )}
       >
-        <div className="mx-3 flex flex-1 items-center md:gap-x-1">
+        <div className="mx-3 hidden flex-1 items-center sm:flex md:gap-x-1">
           <div className="ml-2 flex-1 border-t-[0.5px] border-secondary md:ml-8 lg:ml-12" />
         </div>
-        <h1 className="text-center text-2xl text-primary sm:text-4xl md:mx-2 md:text-5xl lg:text-6xl">
+        <h1 className="w-full text-center text-2xl text-primary sm:w-fit sm:text-4xl md:mx-2 md:text-5xl lg:text-6xl">
           STUDIO HAES
         </h1>
-        <div className="mx-3 flex flex-1 items-center md:gap-x-1">
+        <div className="mx-3 hidden flex-1 items-center sm:flex md:gap-x-1">
           <div className="mr-2 flex-1 border-t-[0.5px] border-secondary md:ml-8 lg:mr-12" />
         </div>
       </div>
@@ -64,4 +64,4 @@ const Header = ({
   );
 };
 
-export default Header;
+export default Nav;

@@ -18,34 +18,31 @@ const Footer = ({ delayComplete }: { delayComplete: boolean }) => {
     >
       <div className="inline-block animate-marquee overflow-hidden whitespace-nowrap">
         <p className="inline-block">
-          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+          THE VOICE OF A SPARROW IN A CYCLONE -&nbsp;
         </p>
         <p className="inline-block">
-          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
+          AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
         </p>
         <p className="inline-block">
-          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+          THEY FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+        </p>{" "}
+        <p className="inline-block">
+          THE VOICE OF A SPARROW IN A CYCLONE -&nbsp;
         </p>
         <p className="inline-block">
-          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
+          AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
         </p>
         <p className="inline-block">
-          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+          THEY FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
         </p>
         <p className="inline-block">
-          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
+          THE VOICE OF A SPARROW IN A CYCLONE -&nbsp;
         </p>
         <p className="inline-block">
-          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
+          AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
         </p>
         <p className="inline-block">
-          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
-        </p>
-        <p className="inline-block">
-          ANGELS CAN FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
-        </p>
-        <p className="inline-block">
-          JUST AS THE OCEAN WAVES THE UNIVERSE PEOPLES -&nbsp;
+          THEY FLY BECAUSE THEY TAKE THEMSELVES LIGHTLY -&nbsp;
         </p>
       </div>
     </div>
