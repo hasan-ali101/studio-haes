@@ -2,7 +2,6 @@ import { client } from "@/sanity/client";
 import { useEffect, useState } from "react";
 import { Archivo } from "next/font/google";
 import { AnimatePresence } from "motion/react";
-import { type SanityDocument } from "next-sanity";
 
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";

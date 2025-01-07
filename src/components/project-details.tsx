@@ -5,7 +5,6 @@ import { cn } from "@/utils";
 import { ProjectType } from "@/types";
 import { VideoPlayer } from "@/components/ui/video-player";
 import Overlay from "./overlay";
-import Link from "next/link";
 
 const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
   const [descriptionFormat, setDescriptionFormat] = useState("video");
