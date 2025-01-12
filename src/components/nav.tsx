@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import { Dispatch, SetStateAction } from "react";
 
 const akira = localFont({
-  src: "../pages/fonts/Akira.otf",
+  src: "../fonts/Akira.otf",
 });
 
 const Nav = ({

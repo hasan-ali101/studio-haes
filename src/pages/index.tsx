@@ -49,7 +49,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
     <div
       className={cn(
         archivo.className,
-        "relative flex min-h-screen w-full flex-col overflow-clip bg-background text-white",
+        "relative flex min-h-svh w-full flex-col overflow-clip bg-background text-white",
       )}
     >
       <BackgroundImage />

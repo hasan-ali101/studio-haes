@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { cn } from "@/utils";
 
 const akira = localFont({
-  src: "../pages/fonts/Akira.otf",
+  src: "../fonts/Akira.otf",
 });
 
 const Footer = ({ delayComplete }: { delayComplete: boolean }) => {
