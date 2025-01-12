@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="col-span-3 flex h-full flex-col gap-y-4 border-secondary pb-8 pt-5 md:overflow-auto md:border-r md:px-4">
+    <div className="col-span-3 flex h-full flex-col gap-y-4 border-secondary pb-8 pt-5 lg:overflow-auto lg:border-r lg:px-4">
       <p className="font-bold text-secondary/60">ABOUT</p>
       <p className="font-semibold text-secondary/60">ENGINEERING & DESIGN</p>
       <p className="mb-2 text-sm leading-6 tracking-wide text-white transition-all">

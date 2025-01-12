@@ -30,10 +30,10 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
   return (
     <>
       <div className="flex justify-between">
-        <p className="mb-3 hidden font-bold text-secondary/60 md:flex">
+        <p className="mb-3 hidden font-bold text-secondary/60 lg:flex">
           PROJECT INFO
         </p>
-        <div className="flex w-full justify-between gap-6 md:w-fit md:justify-start">
+        <div className="flex w-full justify-between gap-6 lg:w-fit lg:justify-start">
           <div className="flex gap-2">
             <p
               onClick={() => {
@@ -77,7 +77,7 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
         <div className="flex w-full justify-center">
           {isExpanded && (
             <Overlay
-              className="z-40 hidden md:flex"
+              className="z-40 hidden lg:flex"
               onClick={() => {
                 setIsExpanded(false);
               }}
@@ -86,7 +86,7 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
           <div
             className={cn(
               isExpanded
-                ? "md:fixed md:left-1/2 md:top-1/2 md:z-50 md:w-2/3 md:-translate-x-1/2 md:-translate-y-1/2 md:transform"
+                ? "lg:fixed lg:left-1/2 lg:top-1/2 lg:z-50 lg:w-2/3 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:transform"
                 : "transition-all duration-100 md:w-full",
               "flex justify-center rounded-sm",
             )}

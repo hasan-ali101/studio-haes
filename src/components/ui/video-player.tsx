@@ -16,10 +16,6 @@ const VideoPlayer = ({
 }) => {
   const vidRef = useRef<HTMLVideoElement>(null);
 
-  const expandVideo = () => {
-    setIsExpanded(true);
-  };
-
   return (
     <motion.video
       ref={vidRef}
@@ -37,7 +33,7 @@ const VideoPlayer = ({
       muted
       loop
       onClick={() => {
-        expandVideo();
+        setIsExpanded(true);
       }}
     >
       <source src={url} type="video/mp4" />
