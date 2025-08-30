@@ -26,7 +26,7 @@ const VideoPlayer = ({
       playsInline
       key={id}
       className={cn(
-        !isExpanded && "max-h-80 hover:scale-[102%]",
+        !isExpanded && "max-h-80 hover:scale-[99%]",
         "cursor-pointer rounded-sm border border-secondary/50 transition-all duration-300",
       )}
       autoPlay

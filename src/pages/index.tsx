@@ -53,7 +53,7 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
       )}
     >
       <BackgroundImage />
-      <div className="z-10 flex h-svh flex-col px-6 sm:px-12">
+      <div className="z-10 flex h-svh flex-col px-4 md:px-5">
         <Nav mounted={mounted} setSidebarActive={setSidebarActive} />
         <MainDesktop
           projects={projects}
@@ -61,9 +61,9 @@ export default function Home({ projects }: { projects: ProjectType[] }) {
           setActiveProject={setActiveProject}
         />
         <MainMobile
-          setActiveProject={setActiveProject}
           projects={projects}
           activeProject={activeProject}
+          setActiveProject={setActiveProject}
         />
         <Footer delayComplete={mounted} />
       </div>

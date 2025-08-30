@@ -1,7 +1,8 @@
-import { cn } from "@/utils";
 import { Github, Linkedin, Mail } from "lucide-react";
 import localFont from "next/font/local";
 import { Dispatch, SetStateAction } from "react";
+
+import { cn } from "@/utils";
 
 const akira = localFont({
   src: "../fonts/Akira.otf",
@@ -18,25 +19,22 @@ const Nav = ({
     <>
       <div
         id="header"
-        className="relative flex items-center justify-between px-2 py-2 text-primary md:px-6"
+        className="relative flex items-center justify-between px-2 py-1 text-primary md:px-6"
       >
         <div className="flex items-center gap-2">
           <a
             target="_blank"
             href="http://www.linkedin.com/in/hasan-ali-software-developer"
           >
-            <Linkedin className="h-8 w-8 rounded-lg border-primary p-1 transition-colors hover:bg-primary/20 md:h-9 md:w-9" />
+            <Linkedin className="h-8 w-8 rounded-lg border-primary p-1 transition-colors hover:bg-primary/20" />
           </a>
-          <a
-            target="_blank"
-            href="https://github.com/hasan-ali101?tab=overview&from=2024-12-01&to=2024-12-02"
-          >
-            <Github className="h-8 w-8 rounded-lg border-primary p-1 transition-colors hover:bg-primary/20 md:h-9 md:w-9" />
+          <a target="_blank" href="https://github.com/hasan-ali101">
+            <Github className="h-8 w-8 rounded-lg border-primary p-1 transition-colors hover:bg-primary/20" />
           </a>
         </div>
 
         <Mail
-          className="h-8 w-8 cursor-pointer rounded-lg border-primary p-1 transition-colors hover:bg-primary/20 md:h-9 md:w-9"
+          className="h-8 w-8 cursor-pointer rounded-lg border-primary p-1 transition-colors hover:bg-primary/20"
           onClick={() => {
             setSidebarActive(true);
           }}
@@ -45,7 +43,7 @@ const Nav = ({
       <div
         id="haes"
         className={cn(
-          mounted ? "py-2 md:py-4" : "py-1 md:py-2",
+          mounted ? "py-2 md:pb-3 md:pt-4" : "py-1 md:py-2",
           akira.className,
           `items flex w-full items-center justify-between border-y border-y-secondary text-center transition-all duration-700`,
         )}

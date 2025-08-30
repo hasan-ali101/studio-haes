@@ -34,15 +34,13 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
           PROJECT INFO
         </p>
         <div className="flex w-full justify-between gap-6 lg:w-fit lg:justify-start">
-          <div className="flex gap-2">
+          <div className="flex gap-2 text-primary">
             <p
               onClick={() => {
                 setDescriptionFormat("video");
               }}
               className={cn(
-                descriptionFormat === "video"
-                  ? "text-primary underline"
-                  : "cursor-pointer",
+                descriptionFormat === "video" ? "text-white" : "cursor-pointer",
               )}
             >
               Video
@@ -53,9 +51,7 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
                 setDescriptionFormat("text");
               }}
               className={cn(
-                descriptionFormat === "text"
-                  ? "text-primary underline"
-                  : "cursor-pointer",
+                descriptionFormat === "text" ? "text-white" : "cursor-pointer",
               )}
             >
               Text
@@ -73,7 +69,7 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
           )}
         </div>
       </div>
-      <div className="flex flex-col items-start gap-6 py-6 md:pl-4 lg:pl-10">
+      <div className="flex flex-col items-start gap-6 py-2 md:pl-4 lg:pl-10">
         <div className="flex w-full justify-center">
           {isExpanded && (
             <Overlay
@@ -103,7 +99,7 @@ const ProjectDetails = ({ activeProject }: { activeProject: ProjectType }) => {
             )}
           </div>
         </div>
-        <p className="w-full text-center tracking-wide text-white md:text-left">
+        <p className="w-full text-center text-sm font-medium tracking-wide text-white md:text-base md:text-lg lg:text-right">
           {activeProject.summary}
         </p>
       </div>
